@@ -12,3 +12,9 @@ test('generates listing ids as zero padded strings', () => {
     const lastHouse = houses[houses.length-1];
     expect(lastHouse['Listing_id']).toBe('099');
 }) 
+
+
+test('doesn\'n generate extra listings'), () => {
+    const houses = seed();
+    expect(houses[houses.length]).toBe(undefined);
+}
