@@ -1,4 +1,4 @@
-// const House = require('../db/Schemas/Listing.js');
+const House = require('../db/Schemas/Listing.js');
 
 
 //loop 100 times
@@ -28,7 +28,7 @@ const seed = () => {
         Address['House_number'] = Math.floor(Math.random() * 9888) + 111;
         Address['Street_number'] = Math.floor(Math.random() * 300);
 
-        const street = ['street', 'avenue', 'place', 'boulevard'];
+        const street = ['Street', 'Avenue', 'Place', 'Boulevard'];
         const direction = ['', ' W', ' NW', ' NE', ' S', ' E', ' SW', ' SE', ' N'];
 
         Address['Street'] = street[Math.floor(Math.random() * 4)] + direction[Math.floor(Math.random() * 9)];
@@ -38,7 +38,7 @@ const seed = () => {
         house['Address'] = Address;
 
 
-        const bools = [true, false];
+        const bools = [false, true];
 
         house['Zestimate'] = bools[Math.floor(Math.random() * 2)];
         house['Agent'] = bools[Math.floor(Math.random() + .799999)];
@@ -46,10 +46,14 @@ const seed = () => {
 
         houses.push(house);
 
-        // House.create(house);//create and save record in db
+        House.create(house);//create and save record in db
 
     }
+    console.log(houses);
     return houses;
+
 }
 
+
+seed();
 module.exports = seed;
