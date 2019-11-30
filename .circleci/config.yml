@@ -36,27 +36,25 @@
 #       # run tests!
 #       - run: npm test
 
- version: 2
+version: 2
  jobs:
-  one:
-    build:
+   one:
      docker:
-       - image: circleci/node:7.10
+       - image: circleci/ruby:2.4.1
      steps:
        - checkout
-       - run: echo "hello world"
+       - run: echo "A first hello"
        - run: sleep 25
-  two:
-    build:
-      docker:
-        - image: circleci/node:7.10
-      steps:
-        - checkout
-        - run: echo "hello world"
-        - run: sleep 15
-workflows:
-  version: 2
-  one_and_two:
-    jobs:
-      - one
-      - two
+   two:
+     docker:
+       - image: circleci/ruby:2.4.1
+     steps:
+       - checkout
+       - run: echo "A more familiar hi"
+       - run: sleep 15
+ workflows:
+   version: 2
+   one_and_two:
+     jobs:
+       - one
+       - two
