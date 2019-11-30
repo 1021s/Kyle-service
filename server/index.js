@@ -16,8 +16,6 @@ app.route('/api/listings')
 
 app.route('/api/listings/:Listing_id')
     .get((req, res) => {
-        console.log(req.params);
-
         House.find(req.params)
         .then(house => res.send(house))
         .catch(() => res.sendStatus(500));
