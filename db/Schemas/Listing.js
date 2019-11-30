@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 
 const houseSchema = new mongoose.Schema({
-    Listing_id: Number,
+    Listing_id: String,
     Price: Number,
     Details: {
         Room_count: Number,

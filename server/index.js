@@ -9,12 +9,16 @@ app.use(express.json());
 
 app.route('/api/listings')
     .get((req, res) => {
-        console.log(req.url);
-        // console.log(House);
-        // res.sendStatus(200);
         House.find({})
         .then(houses => res.send(houses))
         .catch(() => res.status(500).send());
+    })
+
+app.route('/api/listings/:Listing_id')
+    .get((req, res) => {
+        House.find(req.params)
+        .then(house => res.send(house))
+        .catch(() => res.sendStatus(500));
     })
 
 
