@@ -8,6 +8,7 @@ test('generates 100 house listings', () => {
 })
 
 test('generates listing ids as zero padded strings', () => {
-    const house = seed()[1];
-    expect(house['Listing_id']).toBe('001');
+    const houses = seed();
+    const lastHouse = houses[houses.length-1];
+    expect(lastHouse['Listing_id']).toBe('099');
 }) 

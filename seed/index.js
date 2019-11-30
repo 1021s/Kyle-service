@@ -29,9 +29,9 @@ const seed = () => {
         Address['Street_number'] = Math.floor(Math.random() * 300);
 
         const street = ['street', 'avenue', 'place', 'boulevard'];
-        const direction = ['', ' NW', ' NE', ' S', ' SW', ' SE', ' N'];
+        const direction = ['', ' W', ' NW', ' NE', ' S', ' E', ' SW', ' SE', ' N'];
 
-        Address['Street'] = street[Math.floor(Math.random() * 4)] + direction[Math.floor(Math.random() * 7)];
+        Address['Street'] = street[Math.floor(Math.random() * 4)] + direction[Math.floor(Math.random() * 9)];
         Address['City'] = 'Seattle';
         Address['State'] = 'WA';
         Address['ZIP_code'] = Math.floor(Math.random() * 99) + 98100;
@@ -41,7 +41,7 @@ const seed = () => {
         const bools = [true, false];
 
         house['Zestimate'] = bools[Math.floor(Math.random() * 2)];
-        house['Agent'] = bools[Math.floor(Math.random() * 2)];
+        house['Agent'] = bools[Math.floor(Math.random() + .799999)];
         house['Saved'] = false;
 
         houses.push(house);
