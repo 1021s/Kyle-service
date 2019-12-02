@@ -2,9 +2,11 @@ const express = require('express');
 const app = express();
 const PORT = 3001;
 const House = require('../db/Schemas/Listing.js');
+const path = require('path');
 
 
 app.use(express.json());
+app.use(express.static(path.resolve(__dirname, '..','public')));
 
 
 app.route('/api/listings')
