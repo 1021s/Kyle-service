@@ -45,14 +45,22 @@ const seed = () => {
         house['Saved'] = false;
 
         houses.push(house);
-
-        House.create(house);//create and save record in db
+        House.find({'Listing_id': `${house.Listing_id}`}, (err, doc) => {
+            if(err) { console.log(err); }
+            else {
+                if(doc.length === 0) {
+                    House.create(house);//create and save record in db
+                }
+            }
+        });
 
     }
+    console.log('done');
     return houses;
 
 }
 
 
 seed();
+
 module.exports = seed;
