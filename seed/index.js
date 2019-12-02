@@ -49,7 +49,6 @@ const seed = () => {
         House.create(house);//create and save record in db
 
     }
-    console.log(houses);
     return houses;
 
 }
