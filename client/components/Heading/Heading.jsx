@@ -7,7 +7,7 @@ import Share from './Share';
 const Heading = props => {
     return (
         <div>
-            <div>Zillow pic with hover text</div>
+            Zillow pic with hover text
             <Save />
             <Share />
             <More />
