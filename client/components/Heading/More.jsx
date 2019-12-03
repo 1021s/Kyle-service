@@ -6,13 +6,13 @@ const StyledSpan = styled.span`
 
 const Button = styled.button`
 background: white;
-color: blue;
+color: rgb(0,106,255);
 padding: 15px;
 text-align: center;
 font-size: 15px;
 border: none;
 ${StyledSpan}: hover & {
-    color: #5076de;
+    color: rgba(0,106,255, 0.5);
 };
 `;
 

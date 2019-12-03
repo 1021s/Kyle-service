@@ -1,9 +1,27 @@
 import React from 'react';
+import styled from 'styled-components';
 
+
+const StyledSpan = styled.span`
+`;
+
+const Button = styled.button`
+background: white;
+color: rgb(0,106,255);
+padding: 15px;
+text-align: center;
+font-size: 15px;
+border: 0.5px solid grey;
+${StyledSpan}: hover & {
+    border-color: rgb(0,106,255);
+};
+`;
 
 const Contact = props => {
     return (
-        <button>Contact an Agent</button>
+        <StyledSpan>
+            <Button>Contact an Agent</Button>
+        </StyledSpan>
     );
 }
 
