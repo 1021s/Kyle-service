@@ -14,7 +14,7 @@ class App extends React.Component {
     }
 
     componentDidMount() {
-        Axios.get('/api/listings/000')
+        Axios.get('/api/listings/002')
             .then(res => res.data)
             .then(data => data[0])
             .then(house => this.setState({

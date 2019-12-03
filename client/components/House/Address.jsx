@@ -7,7 +7,15 @@ const Address = props => {
     let address;
     if(Address !== undefined) {
     const {House_number, Street_number, Street, City, State, ZIP_code} = Address;
-    address = <div>{House_number} {Street_number} {Street}, {City}, {State} {ZIP_code}</div>;
+    let strAppend = ['st', 'nd', 'rd', 'th'];
+    const length = Street_number.toString().length;
+    let end = Street_number.toString()[length -1];
+    if(parseInt(end) > 4) {
+        end = 3;
+    } else {
+        end = parseInt(end) - 1;
+    }
+    address = <div>{House_number} {Street_number}{strAppend[end]} {Street}, {City}, {State} {ZIP_code}</div>;
     } else {
         address = null;
     }
