@@ -17,9 +17,10 @@ ${StyledSpan}: hover & {
 `;
 
 const Share = props => {
+    const { showModal } = props;
     return (
         <StyledSpan>
-            <Button>Arrow: Share</Button>
+            <Button onClick={() => showModal()}>Arrow: Share</Button>
         </StyledSpan>
     );
 }
