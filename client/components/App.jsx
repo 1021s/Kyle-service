@@ -3,14 +3,17 @@ import Axios from 'axios';
 import Heading from './Heading/Heading';
 import House from './House/House';
 import Footer from './Contact/Footer';
+import ShareModal from './Heading/ShareModal';
 
 
 class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            house: {}
+            house: {},
+            ShareModal: false
         }
+        this.showModal = this.showModal.bind(this);
     }
 
     componentDidMount() {
@@ -24,14 +27,21 @@ class App extends React.Component {
             .finally(() => console.log('done!'));
     }
 
+    showModal() {
+        this.setState({
+            ShareModal: !this.state.ShareModal
+        });
+    }
+
     render() {
         const { house } = this.state;
         const { Agent } = house;
         return (
             <div>
-                <Heading />
+                <Heading showModal={this.showModal} />
                 <House house={house} />
                 <Footer Agent={Agent} />
+                <ShareModal show={this.state.ShareModal} />
             </div>
         )
     }
