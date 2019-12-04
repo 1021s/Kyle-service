@@ -18,7 +18,7 @@ const Share = props => {
     const { showModal } = props;
     return (
         <StyledSpan>
-            <Button onClick={() => showModal()}>Arrow: Share</Button>
+            <Button onClick={() => showModal('ShareModal')}>Arrow: Share</Button>
         </StyledSpan>
     );
 }

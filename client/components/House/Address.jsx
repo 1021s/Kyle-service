@@ -15,7 +15,7 @@ const Address = props => {
     } else {
         end = parseInt(end) - 1;
     }
-    address = <div>{House_number} {Street_number}{strAppend[end]} {Street}, {City}, {State} {ZIP_code}</div>;
+    address = <div><strong>{House_number} {Street_number}{strAppend[end]} {Street}, {City}, {State} {ZIP_code}</strong></div>;
     } else {
         address = null;
     }

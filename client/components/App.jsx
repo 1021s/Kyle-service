@@ -27,10 +27,10 @@ class App extends React.Component {
             .finally(() => console.log('done!'));
     }
 
-    showModal() {
+    showModal(name) {
         this.setState({
-            ShareModal: !this.state.ShareModal
-        });
+            [name]: !this.state[name]
+        }, () => console.log(name));
     }
 
     render() {
@@ -40,8 +40,10 @@ class App extends React.Component {
             <div>
                 <Heading showModal={this.showModal} />
                 <House house={house} />
-                <Footer Agent={Agent} />
+                <Footer Agent={Agent} show={this.showModal} />
                 <ShareModal show={this.state.ShareModal} showModal={this.showModal} />
+                {/* <ContactModal show={this.state.ContactModal} showModal={this.showModal}/>
+                <TourModal show={this.state.TourModal} showModal={this.showModal} /> */}
             </div>
         )
     }

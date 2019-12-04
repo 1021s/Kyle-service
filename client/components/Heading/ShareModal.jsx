@@ -37,7 +37,7 @@ class ShareModal extends React.Component {
             email: '',
             yourEmail: '',
             message: 'Check out this home I found on Zillow.'
-        }, () => showModal());
+        }, () => showModal('ShareModal'));
     }
 
     render() {
@@ -45,7 +45,7 @@ class ShareModal extends React.Component {
         if (show) {
 
             return (
-                <ModalDiv>
+                <ModalDiv onClick={()=> this.hideModal()}>
                     <ModalContent>
                     <Close close={this.hideModal}/>
                         <h1><b>Email this home</b></h1>

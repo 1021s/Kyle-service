@@ -1,4 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
+
+
+const Weight = styled.strong`
+font-weight: bold;
+font-size: 30px;
+`;
 
 
 const Details = props => {
@@ -11,7 +18,7 @@ const Details = props => {
 
         const { Room_count, Bathroom_count, Square_footage } = Details;
         details = <div>
-            <div>${price}  {Room_count} bd | {Bathroom_count} ba for more info | {Square_footage} sqft</div>
+            <div><Weight>${price}</Weight>  <strong>{Room_count}</strong> bd | <strong>{Bathroom_count}</strong> ba | <strong>{Square_footage}</strong> sqft</div>
         </div>;
 
     } else {

@@ -1,4 +1,5 @@
 import React from 'react';
+import Orange from './Orange';
 
 
 const Zestimate = props => {
@@ -13,7 +14,7 @@ const Zestimate = props => {
         zestimate = 'None';
     }
         return (
-            <div>Orange dot For sale | Zestimate: ${zestimate}</div>
+            <div><Orange/> For sale | Zestimate: ${zestimate}</div>
         );
 }
 
