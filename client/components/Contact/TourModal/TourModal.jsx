@@ -13,7 +13,7 @@ const Textarea = styled.textarea`
     margin-top: 10px;
 `;
 
-class ContactModal extends React.Component {
+class TourModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -21,6 +21,7 @@ class ContactModal extends React.Component {
       phone: '',
       yourEmail: '',
       message: '',
+      date: '',
       finance: false,
     };
     this.onChange = this.onChange.bind(this);
@@ -39,7 +40,7 @@ class ContactModal extends React.Component {
 
   hideModal() {
     const { showModal } = this.props;
-    showModal('contactModal');
+    showModal('ContactModal');
   }
 
   contactAgent() {
@@ -50,7 +51,7 @@ class ContactModal extends React.Component {
       yourEmail: '',
       message: '',
       finance: false,
-    }, () => showModal('contactModal'));
+    }, () => showModal('ContactModal'));
   }
 
   render() {

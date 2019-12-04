@@ -14,5 +14,4 @@ margin-top: 100px;
 `;
 
 
-
 export default ModalContent;

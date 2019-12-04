@@ -12,6 +12,7 @@ text-align: center;
 margin: 4px 3px;
 font-size: 15px;
 border: 0.5px solid rgb(0,106,255);
+border-radius: 4px;
 ${StyledSpan}: hover & {
     background: white;
     color: rgb(0,106,255);
@@ -19,15 +20,11 @@ ${StyledSpan}: hover & {
 `;
 
 
-
-
-const Tour = props => {
-    return (
-        <StyledSpan>
-            <Button>Take a Tour</Button>
-        </StyledSpan>
-    );
-}
+const Tour = (props) => (
+  <StyledSpan>
+    <Button>Take a Tour</Button>
+  </StyledSpan>
+);
 
 
 export default Tour;

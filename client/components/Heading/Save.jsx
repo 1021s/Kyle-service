@@ -17,14 +17,11 @@ ${StyledSpan}: hover & {
 };
 `;
 
-const Save = props => {
-    return (
-        <StyledSpan>
-            <Button>Heart: Save</Button>
-        </StyledSpan>
-    );
-}
-
+const Save = (props) => (
+  <StyledSpan>
+    <Button>Heart: Save</Button>
+  </StyledSpan>
+);
 
 
 export default Save;
