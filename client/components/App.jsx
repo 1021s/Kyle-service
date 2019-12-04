@@ -41,7 +41,7 @@ class App extends React.Component {
                 <Heading showModal={this.showModal} />
                 <House house={house} />
                 <Footer Agent={Agent} />
-                <ShareModal show={this.state.ShareModal} />
+                <ShareModal show={this.state.ShareModal} showModal={this.showModal} />
             </div>
         )
     }

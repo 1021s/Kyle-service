@@ -16,10 +16,16 @@ ${StyledSpan}: hover & {
 }
 `;
 
+const handleClick = (fn) => {
+    event.preventDefault();
+    fn();
+}
+
 const Send = props => {
+    const {close} = props;
     return (
         <StyledSpan>
-            <Button>Send email</Button>
+            <Button onClick={()=> handleClick(close)}>Send email</Button>
         </StyledSpan>
     );
 }

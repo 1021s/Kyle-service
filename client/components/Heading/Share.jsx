@@ -1,8 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
-const StyledSpan = styled.span`
-`;
+import StyledSpan from './StyledSpan';
 
 const Button = styled.button`
 background: white;

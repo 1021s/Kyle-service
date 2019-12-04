@@ -8,7 +8,9 @@ box-shadow: -2rem 2rem 2rem rgba(0, 0, 0, 0.2);
 display: inline-block;
 text-align: left;
 padding: 20px;
-margin-top: 10%;
+width: auto;
+height: 400px;
+margin-top: 100px;
 `;
 
 
