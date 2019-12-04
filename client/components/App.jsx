@@ -4,6 +4,8 @@ import Heading from './Heading/Heading';
 import House from './House/House';
 import Footer from './Contact/Footer';
 import ShareModal from './Heading/ShareModal';
+import ContactModal from './Contact/ContactModal/ContactModal';
+// import TourModal from './Contact/TourModal';
 
 
 class App extends React.Component {
@@ -30,7 +32,7 @@ class App extends React.Component {
     showModal(name) {
         this.setState({
             [name]: !this.state[name]
-        }, () => console.log(name));
+        }, () => console.log(this.state[name], name));
     }
 
     render() {
@@ -40,10 +42,10 @@ class App extends React.Component {
             <div>
                 <Heading showModal={this.showModal} />
                 <House house={house} />
-                <Footer Agent={Agent} show={this.showModal} />
+                <Footer Agent={Agent} showModal={this.showModal} />
                 <ShareModal show={this.state.ShareModal} showModal={this.showModal} />
-                {/* <ContactModal show={this.state.ContactModal} showModal={this.showModal}/>
-                <TourModal show={this.state.TourModal} showModal={this.showModal} /> */}
+                <ContactModal show={this.state.ContactModal} showModal={this.showModal}/>
+                {/* <TourModal show={this.state.TourModal} showModal={this.showModal} /> */}
             </div>
         )
     }

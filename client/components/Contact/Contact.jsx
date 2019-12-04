@@ -19,9 +19,10 @@ ${StyledSpan}: hover & {
 `;
 
 const Contact = props => {
+    const {showModal} = props;
     return (
         <StyledSpan>
-            <Button>Contact an Agent</Button>
+            <Button onClick={() => showModal('ContactModal')}>Contact an Agent</Button>
         </StyledSpan>
     );
 }

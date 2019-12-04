@@ -21,6 +21,7 @@ class ShareModal extends React.Component {
         }
         this.onChange = this.onChange.bind(this);
         this.hideModal = this.hideModal.bind(this);
+        this.shareHouse = this.shareHouse.bind(this);
     }
 
     onChange(e) {
@@ -32,7 +33,12 @@ class ShareModal extends React.Component {
     }
 
     hideModal() {
-        const {showModal} = this.props;
+        const { showModal } = this.props;
+        showModal('ShareModal');
+    }
+
+    shareHouse() {
+        const { showModal } = this.props;
         this.setState({
             email: '',
             yourEmail: '',
@@ -45,20 +51,20 @@ class ShareModal extends React.Component {
         if (show) {
 
             return (
-                <ModalDiv onClick={()=> this.hideModal()}>
+                <ModalDiv>
                     <ModalContent>
-                    <Close close={this.hideModal}/>
+                        <Close close={this.hideModal} />
                         <h1><b>Email this home</b></h1>
                         <form>
                             <label><b>Recipient's email</b></label><br />
                             <input name='email' type='text' value={this.state.email} onChange={() => this.onChange(event)} size="50" /><br />
-                            Separate multiple addresses with a comma. <br /><br/>
+                            Separate multiple addresses with a comma. <br /><br />
                             <label><b>Your email</b></label><br />
-                            <input name='yourEmail' type='text' value={this.state.yourEmail} onChange={() => this.onChange(event)} size="50" /><br/><br/>
+                            <input name='yourEmail' type='text' value={this.state.yourEmail} onChange={() => this.onChange(event)} size="50" /><br /><br />
                             <label><b>Include message (optional)</b></label><br />
                             <Textarea name='message' value={this.state.message} onChange={() => this.onChange(event)} />
-                            <br /><br/><br/>
-                            <Send close={this.hideModal}/>
+                            <br /><br /><br />
+                            <Send close={this.shareHouse} />
                         </form>
                     </ModalContent>
                 </ModalDiv>

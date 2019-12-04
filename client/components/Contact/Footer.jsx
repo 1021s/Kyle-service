@@ -3,9 +3,10 @@ import Contact from './Contact';
 import Tour from './Tour';
 
 const Footer = props => {
+    const { showModal } = props;
     return (
         <div>
-            <Contact />
+            <Contact showModal={showModal}/>
             <Tour />
         </div>
     )
