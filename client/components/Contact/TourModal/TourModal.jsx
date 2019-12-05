@@ -1,5 +1,8 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable jsx-a11y/label-has-associated-control */
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import ModalDiv from './ModalDiv';
 import ModalContent from './ModalContent';
 import Close from '../../Heading/Close';
@@ -35,7 +38,7 @@ class TourModal extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
-    }, () => console.log('name:', this.state[name]));
+    });
   }
 
   hideModal() {
@@ -56,7 +59,9 @@ class TourModal extends React.Component {
 
   render() {
     const { show } = this.props;
-    const { name, phone, yourEmail, message, finance } = this.state;
+    const {
+      name, phone, yourEmail, message, finance,
+    } = this.state;
     if (show) {
       return (
         <ModalDiv>
@@ -85,4 +90,9 @@ class TourModal extends React.Component {
   }
 }
 
-export default ContactModal;
+TourModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  showModal: PropTypes.func.isRequired,
+};
+
+export default TourModal;

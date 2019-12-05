@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import StyledSpan from './StyledSpan';
 
 const Button = styled.button`
@@ -14,14 +15,18 @@ ${StyledSpan}: hover & {
 };
 `;
 
-const Share = props => {
-    const { showModal } = props;
-    return (
-        <StyledSpan>
-            <Button onClick={() => showModal('shareModal')}>Arrow: Share</Button>
-        </StyledSpan>
-    );
-}
+const Share = (props) => {
+  const { showModal } = props;
+  return (
+    <StyledSpan>
+      <Button onClick={() => showModal('shareModal')}>Arrow: Share</Button>
+    </StyledSpan>
+  );
+};
+
+Share.propTypes = {
+  showModal: PropTypes.func.isRequired,
+};
 
 
 export default Share;
