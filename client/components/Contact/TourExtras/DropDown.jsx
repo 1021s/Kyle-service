@@ -7,7 +7,7 @@ const DropDown = (props) => {
   return (
     <select>
       <option value="choose">Choose a time</option>
-      {times.map((time) => <option value={time}>{time}</option>)}
+      {times.map((time) => <option value={time} key={time}>{time}</option>)}
     </select>
   );
 };

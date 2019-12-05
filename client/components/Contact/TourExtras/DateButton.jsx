@@ -1,5 +1,8 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
+import Moment from 'moment';
 
 
 const Button = styled.button`
@@ -14,7 +17,7 @@ border-radius: 4px;
 `;
 
 const ClickedButton = styled.button`
-background: rgb(23, 176, 54);
+background: #17B036;
 color: white;
 padding: 15px;
 text-align: center;
@@ -25,25 +28,37 @@ border-radius: 4px;
 `;
 
 const DateButton = (props) => {
-  const { clicked, day, date } = props;
-  if (clicked) {
+  const {
+    currentDate, date, clickDate,
+  } = props;
+  const day = date.format('ddd');
+  const month = date.format('MMM');
+  if (currentDate === date.get('date')) {
     return (
-      <ClickedButton>
-        <b>WED</b>
+      <ClickedButton onClick={() => clickDate(date.get('date'))}>
+        <b>{day.toString().toUpperCase()}</b>
         <br />
         <br />
-        Dec 4
+        {month}
+        {' '}
+        {date.get('date')}
       </ClickedButton>
     );
   }
   return (
-    <Button>
-      <b>WED</b>
+    <Button onClick={() => clickDate(date.get('date'))}>
+      <b>{day.toString().toUpperCase()}</b>
       <br />
       <br />
-        Dec 4
+      {month}
+      {' '}
+      {date.get('date')}
     </Button>
   );
+};
+
+DateButton.propTypes = {
+  currentDate: PropTypes.number.isRequired,
 };
 
 export default DateButton;
