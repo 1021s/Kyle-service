@@ -37,7 +37,8 @@ class ShareModal extends React.Component {
     showModal('shareModal');
   }
 
-  shareHouse() {
+  shareHouse(event) {
+    event.preventDefault();
     const { showModal } = this.props;
     this.setState({
       email: '',

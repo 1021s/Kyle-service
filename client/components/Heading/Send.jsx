@@ -15,17 +15,18 @@ ${StyledSpan}: hover & {
 
 }
 `;
+Button.displayName = 'btn';
 
-const handleClick = (fn) => {
-  event.preventDefault();
-  fn();
-};
+// const handleClick = (fn) => {
+//   event.preventDefault();
+//   fn();
+// };
 
 const Send = (props) => {
   const { close, children } = props;
   return (
     <StyledSpan>
-      <Button onClick={() => handleClick(close)}>{ children }</Button>
+      <Button onClick={close}>{ children }</Button>
     </StyledSpan>
   );
 };
