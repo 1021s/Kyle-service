@@ -5,7 +5,7 @@ import House from './House/House';
 import Footer from './Contact/Footer';
 import ShareModal from './Heading/ShareModal';
 import ContactModal from './Contact/ContactModal/ContactModal';
-// import TourModal from './Contact/TourModal';
+import TourModal from './Contact/TourModal/TourModal';
 
 
 const sampleHouse = {
@@ -47,12 +47,15 @@ class App extends React.Component {
 
   showModal(name) {
     this.setState({
+      // eslint-disable-next-line react/destructuring-assignment
       [name]: !this.state[name],
     }, () => console.log(this.state[name], name));
   }
 
   render() {
-    const { house, shareModal, contactModal } = this.state;
+    const {
+      house, shareModal, contactModal, tourModal,
+    } = this.state;
     const { Agent } = house;
     return (
       <div>
@@ -61,11 +64,11 @@ class App extends React.Component {
         <Footer Agent={Agent} showModal={this.showModal} />
         <ShareModal show={shareModal} showModal={this.showModal} />
         <ContactModal show={contactModal} showModal={this.showModal} />
+        <TourModal show={tourModal} showModal={this.showModal} />
       </div>
     );
   }
 }
 
-{/* <TourModal show={this.state.TourModal} showModal={this.showModal} /> */}
 
 export default App;

@@ -42,7 +42,8 @@ class ContactModal extends React.Component {
     showModal('contactModal');
   }
 
-  contactAgent() {
+  contactAgent(event) {
+    event.preventDefault();
     const { showModal } = this.props;
     this.setState({
       name: '',

@@ -17,11 +17,6 @@ ${StyledSpan}: hover & {
 `;
 Button.displayName = 'btn';
 
-// const handleClick = (fn) => {
-//   event.preventDefault();
-//   fn();
-// };
-
 const Send = (props) => {
   const { close, children } = props;
   return (

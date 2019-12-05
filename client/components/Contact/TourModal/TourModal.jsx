@@ -7,6 +7,8 @@ import ModalDiv from './ModalDiv';
 import ModalContent from './ModalContent';
 import Close from '../../Heading/Close';
 import Send from '../../Heading/Send';
+import Moment from 'moment';
+import moment from 'moment';
 
 const Textarea = styled.textarea`
     resize: vertical;
@@ -24,8 +26,10 @@ class TourModal extends React.Component {
       phone: '',
       yourEmail: '',
       message: '',
-      date: '',
+      dates: [],
       finance: false,
+      currentDate: '',
+      toggle: false,
     };
     this.onChange = this.onChange.bind(this);
     this.hideModal = this.hideModal.bind(this);
@@ -43,7 +47,7 @@ class TourModal extends React.Component {
 
   hideModal() {
     const { showModal } = this.props;
-    showModal('ContactModal');
+    showModal('tourModal');
   }
 
   contactAgent() {
@@ -54,37 +58,48 @@ class TourModal extends React.Component {
       yourEmail: '',
       message: '',
       finance: false,
-    }, () => showModal('ContactModal'));
+    }, () => showModal('tourModal'));
   }
 
   render() {
     const { show } = this.props;
     const {
-      name, phone, yourEmail, message, finance,
+      name, phone, yourEmail, message, finance, date, currentDate, toggle,
     } = this.state;
+    let modal;
+    const dateModal = (
+      <ModalDiv>
+        <ModalContent>
+          <Close close={this.hideModal} />
+          Insert buttons here
+        </ModalContent>
+      </ModalDiv>
+    );
+    const formModal = (
+      <ModalDiv>
+        <ModalContent>
+          <Close close={this.hideModal} />
+          <h1><b>Contact Agent</b></h1>
+          <form>
+            <input name="name" type="text" value={name} onChange={() => this.onChange(event)} size="50" />
+            <br />
+            <input name="phone" type="text" value={phone} onChange={() => this.onChange(event)} size="50" />
+            <br />
+            <input name="yourEmail" type="text" value={yourEmail} onChange={() => this.onChange(event)} size="50" />
+            <br />
+            <Textarea name="message" value={message} onChange={() => this.onChange(event)} />
+            <br />
+            <Send close={this.contactAgent}>Contact Agent</Send>
+            <br />
+            <input name="finance" checked={finance} type="checkbox" onChange={() => this.onChange(event)} />
+            <label>I want financing information</label>
+          </form>
+        </ModalContent>
+      </ModalDiv>
+    );
+    if (toggle ? modal = formModal : modal = dateModal);
     if (show) {
-      return (
-        <ModalDiv>
-          <ModalContent>
-            <Close close={this.hideModal} />
-            <h1><b>Contact Agent</b></h1>
-            <form>
-              <input name="name" type="text" value={name} onChange={() => this.onChange(event)} size="50" />
-              <br />
-              <input name="phone" type="text" value={phone} onChange={() => this.onChange(event)} size="50" />
-              <br />
-              <input name="yourEmail" type="text" value={yourEmail} onChange={() => this.onChange(event)} size="50" />
-              <br />
-              <Textarea name="message" value={message} onChange={() => this.onChange(event)} />
-              <br />
-              <Send close={this.contactAgent}>Contact Agent</Send>
-              <br />
-              <input name="finance" checked={finance} type="checkbox" onChange={() => this.onChange(event)} />
-              <label>I want financing information</label>
-            </form>
-          </ModalContent>
-        </ModalDiv>
-      );
+      return modal;
     }
     return null;
   }
