@@ -20,7 +20,7 @@ const house = {
   __v: 0,
 };
 
-describe('', () => {
+describe('Addresss render test suite', () => {
   const empty = mount(<Address house={{}} />);
   const full = mount(<Address house={house} />);
 

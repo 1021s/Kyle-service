@@ -17,14 +17,14 @@ ${StyledSpan}: hover & {
 }
 `;
 
-const Close = props => {
-    const {close} = props;
-    return (
-        <StyledSpann>
-            <Button onClick={() => close()}>X</Button>
-        </StyledSpann>
-    );
-}
+const Close = (props) => {
+  const { close } = props;
+  return (
+    <StyledSpann>
+      <Button onClick={() => close()}>X</Button>
+    </StyledSpann>
+  );
+};
 
 
 export default Close;

@@ -6,7 +6,7 @@ import App from '../../client/components/App';
 import Contact from '../../client/components/Contact/Contact';
 import ContactModal from '../../client/components/Contact/ContactModal/ContactModal';
 
-describe('', () => {
+describe('Contact render test suite', () => {
   let wrApp; let app; let wrapper; let wrapperModal; let modal;
   beforeEach(() => {
     wrApp = mount(<App />);

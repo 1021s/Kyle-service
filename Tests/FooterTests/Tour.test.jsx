@@ -6,7 +6,7 @@ import App from '../../client/components/App';
 import Tour from '../../client/components/Contact/Tour';
 import TourModal from '../../client/components/Contact/TourModal/TourModal';
 
-describe('', () => {
+describe('Tour button test suite', () => {
   let wrApp; let app; let wrapper; let wrapperModal; let modal;
   beforeEach(() => {
     wrApp = mount(<App />);
