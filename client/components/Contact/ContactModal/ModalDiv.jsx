@@ -20,5 +20,4 @@ left: 0;
 `;
 
 
-
 export default ModalDiv;

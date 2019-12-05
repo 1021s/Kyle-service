@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 
@@ -19,13 +20,17 @@ ${StyledSpan}: hover & {
 };
 `;
 
-const Contact = props => {
-  const {showModal} = props;
+const Contact = (props) => {
+  const { showModal } = props;
   return (
     <StyledSpan>
       <Button onClick={() => showModal('contactModal')}>Contact Agent</Button>
     </StyledSpan>
   );
+};
+
+Contact.propTypes = {
+  showModal: PropTypes.func.isRequired,
 };
 
 

@@ -3,33 +3,33 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import App from '../../client/components/App';
-import Share from '../../client/components/Heading/Share';
-import ShareModal from '../../client/components/Heading/ShareModal';
+import Contact from '../../client/components/Contact/Contact';
+import ContactModal from '../../client/components/Contact/ContactModal/ContactModal';
 
 describe('', () => {
   let wrApp; let app; let wrapper; let wrapperModal; let modal;
   beforeEach(() => {
     wrApp = mount(<App />);
     app = wrApp.instance();
-    wrapper = mount(<Share showModal={app.showModal} />);
-    wrapperModal = mount(<ShareModal show={wrApp.state('shareModal')} />);
+    wrapper = mount(<Contact showModal={app.showModal} />);
+    wrapperModal = mount(<ContactModal show={wrApp.state('contactModal')} />);
     modal = wrapperModal.instance();
   });
 
   it('should update state in App on click', () => {
-    expect(wrApp.state('shareModal')).toBe(false);
+    expect(wrApp.state('contactModal')).toBe(false);
     wrapper.find('button').simulate('click');
-    expect(wrApp.state('shareModal')).toBe(true);
+    expect(wrApp.state('contactModal')).toBe(true);
   });
-  it('should update props in ShareModal on click', () => {
-    expect(wrApp.state('shareModal')).toBe(false);
+  it('should update props in ContactModal on click', () => {
+    expect(wrApp.state('contactModal')).toBe(false);
     expect(modal.props.show).toBe(false);
 
     wrapper.find('button').simulate('click');
-    expect(wrApp.state('shareModal')).toBe(true);
+    expect(wrApp.state('contactModal')).toBe(true);
 
     // new instance check
-    wrapperModal = mount(<ShareModal show={wrApp.state('shareModal')} />);
+    wrapperModal = mount(<ContactModal show={wrApp.state('contactModal')} />);
     modal = wrapperModal.instance();
     expect(modal.props.show).toBe(true);
   });

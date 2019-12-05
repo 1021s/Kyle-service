@@ -29,6 +29,7 @@ class App extends React.Component {
       house: sampleHouse,
       shareModal: false,
       contactModal: false,
+      tourModal: false,
     };
     this.showModal = this.showModal.bind(this);
   }

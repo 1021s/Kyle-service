@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const StyledSpan = styled.span`
@@ -20,11 +21,18 @@ ${StyledSpan}: hover & {
 `;
 
 
-const Tour = (props) => (
-  <StyledSpan>
-    <Button>Take a Tour</Button>
-  </StyledSpan>
-);
+const Tour = (props) => {
+  const { showModal } = props;
+  return (
+    <StyledSpan>
+      <Button onClick={() => showModal('tourModal')}>Take a Tour</Button>
+    </StyledSpan>
+  );
+};
+
+Tour.propTypes = {
+  showModal: PropTypes.func.isRequired,
+};
 
 
 export default Tour;
