@@ -46,6 +46,8 @@ class TourModal extends React.Component {
     this.contactAgent = this.contactAgent.bind(this);
     this.clickDate = this.clickDate.bind(this);
     this.switchModal = this.switchModal.bind(this);
+    this.SwitchLeft = this.SwitchLeft.bind(this);
+    this.SwitchRight = this.SwitchRight.bind(this);
   }
 
   componentDidMount() {
@@ -101,7 +103,7 @@ class TourModal extends React.Component {
     if (this.checkNow(currentDate)) {
       const minute = Moment().get('minute');
       Hour = Moment().get('hour');
-      Hour += 2;
+      Hour += 1;
       if (minute > 30) {
         Hour += 1;
       } else {
@@ -154,6 +156,39 @@ class TourModal extends React.Component {
     });
   }
 
+  SwitchLeft() {
+    const { currentDates, dates } = this.state;
+    if (currentDates[0].get('date') !== Moment().get('date')) {
+      const min = dates.map((date) => date.get('date')).indexOf(currentDates[0].get('date'));
+      if (min >= 3) {
+        this.setState({
+          currentDates: dates.slice(min - 3, min),
+        });
+      } else {
+        this.setState({
+          currentDates: dates.slice(0, 3),
+        });
+      }
+    }
+  }
+
+  SwitchRight() {
+    const { currentDates, dates } = this.state;
+    const length = currentDates.length - 1;
+    if (currentDates[length].get('date') !== dates[dates.length - 1].get('date')) {
+      const max = dates.map((date) => date.get('date')).indexOf(currentDates[length].get('date'));
+      if (dates.length - max >= 3) {
+        this.setState({
+          currentDates: dates.slice(max + 1, max + 4),
+        });
+      } else {
+        this.setState({
+          currentDates: dates.slice(dates.length - 3, dates.length),
+        });
+      }
+    }
+  }
+
 
   render() {
     const { show } = this.props;
@@ -167,8 +202,7 @@ class TourModal extends React.Component {
           <Close close={this.hideModal} />
           <br />
           <h3>Take a tour</h3>
-
-          <DateButtonList dates={currentDates} currentDate={currentDate} clickDate={this.clickDate} />
+          <DateButtonList dates={currentDates} currentDate={currentDate} clickDate={this.clickDate} SwitchLeft={this.SwitchLeft} SwitchRight={this.SwitchRight} />
           <br />
           <DropDown times={times} />
           <RequestTour contact={this.switchModal} />
