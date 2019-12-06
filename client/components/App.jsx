@@ -26,7 +26,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      house: sampleHouse,
+      house: {},
       shareModal: false,
       contactModal: false,
       tourModal: false,
@@ -34,16 +34,19 @@ class App extends React.Component {
     this.showModal = this.showModal.bind(this);
   }
 
-  //   componentDidMount() {
-  //     Axios.get('/api/listings/002')
-  //       .then((res) => res.data)
-  //       .then((data) => data[0])
-  //       .then((house) => this.setState({
-  //         house,
-  //       }))
-  //       .catch((err) => console.log(err))
-  //       .finally(() => console.log('done!'));
-  //   }
+  componentDidMount() {
+    const url = window.location.href;
+    const params = new URL(url).pathname;
+    const Listing_id = params.slice(1, params.length - 1);
+    Axios.get(`/api/listings/${Listing_id}`)
+      .then((res) => res.data)
+      .then((data) => data[0])
+      .then((house) => this.setState({
+        house,
+      }))
+      .catch((err) => console.log(err))
+      .finally(() => console.log('done!'));
+  }
 
   showModal(name) {
     this.setState({
