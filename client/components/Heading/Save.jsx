@@ -8,7 +8,7 @@ const StyledSpan = styled.span`
 const Button = styled.button`
 background: white;
 color: rgb(0,106,255);
-padding: 15px;
+padding: 15px 15px 15px 0px;
 text-align: center;
 font-size: 15px;
 border: none;
@@ -19,7 +19,10 @@ ${StyledSpan}: hover & {
 
 const Save = (props) => (
   <StyledSpan>
-    <Button>Heart: Save</Button>
+    <img src="https://img.icons8.com/ultraviolet/40/000000/hearts.png" alt="heart" height="20px" width="20px" />
+    <span>
+      <Button>Save</Button>
+    </span>
   </StyledSpan>
 );
 
