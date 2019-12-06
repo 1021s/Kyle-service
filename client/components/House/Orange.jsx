@@ -7,8 +7,8 @@ width: 10px;
 background-color: rgb(255,90,80);
 border-radius: 50%;
 display: inline-block;
+margin-right: 6px;
 `;
-
 
 
 export default Orange;

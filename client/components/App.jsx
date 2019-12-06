@@ -63,6 +63,7 @@ class App extends React.Component {
     return (
       <TextDiv>
         <Heading showModal={this.showModal} />
+        <hr/>
         <House house={house} />
         <Footer Agent={Agent} showModal={this.showModal} />
         <ShareModal show={shareModal} showModal={this.showModal} />

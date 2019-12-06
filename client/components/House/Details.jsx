@@ -4,10 +4,28 @@ import styled from 'styled-components';
 
 
 const Weight = styled.strong`
-font-weight: bold;
-font-size: 30px;
+font-weight: 600;
+font-size: 26px;
+margin-right: 8px;
+padding-right: 8px;
 `;
 
+const Span = styled.span`
+border-style: solid;
+border-width: 0 1px 0 0;
+border-color: #ccc;
+margin-right: 8px;
+padding-right: 8px;
+font-size: 15px;
+line-height: 1.533;
+`;
+
+const Underlined = styled.span`
+border-style: dashed;
+border-width: 0 0 1px 0;
+borer-color: rgb(167, 166, 171);
+cursor: help;
+`;
 
 const Details = (props) => {
   const { house } = props;
@@ -26,14 +44,20 @@ const Details = (props) => {
             $
             {price}
           </Weight>
-          <strong>{Room_count}</strong>
-          {' '}
-            bd |
-          {' '}
-          <strong>{Bathroom_count}</strong>
-          {' '}
-            ba |
-          {' '}
+          <Span>
+            <strong>{Room_count}</strong>
+            {' '}
+            bd
+            {' '}
+          </Span>
+          <Span>
+            <Underlined>
+              <strong>{Bathroom_count}</strong>
+              {' '}
+            ba
+              {' '}
+            </Underlined>
+          </Span>
           <strong>{Square_footage}</strong>
           {' '}
             sqft

@@ -1,7 +1,14 @@
 /* eslint-disable radix */
 /* eslint-disable camelcase */
 import React from 'react';
+import styled from 'styled-components';
 
+const Div = styled.div`
+font-size: 15px;
+line-height: 1.53;
+font-weight: 600;
+letter-spacing: normal;
+`;
 
 const Address = (props) => {
   const { house } = props;
@@ -20,23 +27,20 @@ const Address = (props) => {
       end = parseInt(end) - 1;
     }
     address = (
-      <div>
-        <strong>
-          {House_number}
-          {' '}
-          {Street_number}
-          {strAppend[end]}
-          {' '}
-          {Street}
-          {', '}
-          {City}
-          {', '}
-          {State}
-          {', '}
-          {ZIP_code}
-        </strong>
-
-      </div>
+      <Div>
+        {House_number}
+        {' '}
+        {Street_number}
+        {strAppend[end]}
+        {' '}
+        {Street}
+        {', '}
+        {City}
+        {', '}
+        {State}
+        {', '}
+        {ZIP_code}
+      </Div>
     );
   } else {
     address = null;
