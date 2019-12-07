@@ -7,10 +7,10 @@ import Moment from 'moment';
 import ModalDiv from './ModalDiv';
 import ModalContent from './ModalContent';
 import Close from '../../Heading/Close';
-import Send from '../../Heading/Send';
 import DateButtonList from '../TourExtras/DateButtonList';
 import DropDown from '../TourExtras/DropDown';
 import RequestTour from '../TourExtras/RequestTour';
+
 
 const Textarea = styled.textarea`
     resize: vertical;
@@ -205,7 +205,7 @@ class TourModal extends React.Component {
           <DateButtonList dates={currentDates} currentDate={currentDate} clickDate={this.clickDate} SwitchLeft={this.SwitchLeft} SwitchRight={this.SwitchRight} />
           <br />
           <DropDown times={times} />
-          <RequestTour contact={this.switchModal} />
+          <RequestTour close={this.switchModal}>Request tour</RequestTour>
         </ModalContent>
       </ModalDiv>
     );
@@ -223,7 +223,7 @@ class TourModal extends React.Component {
             <br />
             <Textarea name="message" value={message} onChange={() => this.onChange(event)} />
             <br />
-            <Send close={this.contactAgent}>Contact Agent</Send>
+            <RequestTour close={this.contactAgent}>Contact Agent</RequestTour>
             <br />
             <input name="finance" checked={finance} type="checkbox" onChange={() => this.onChange(event)} />
             <label>I want financing information</label>

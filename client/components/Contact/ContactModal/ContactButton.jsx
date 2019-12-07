@@ -30,14 +30,14 @@ ${LI}: hover & {
 };
 `;
 
-const RequestTour = (props) => {
+const ContactButton = (props) => {
   const { close, children } = props;
   return (
     <LI>
-      <Button onClick={() => close()}>{ children }</Button>
+      <Button onClick={close}>{ children }</Button>
     </LI>
   );
 };
 
 
-export default RequestTour;
+export default ContactButton;

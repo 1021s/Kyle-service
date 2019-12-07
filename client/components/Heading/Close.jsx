@@ -9,6 +9,7 @@ style=" fill:#000000;"><g fill="none" fill-rule="nonzero" stroke="none" stroke-w
 // img for hover close button
 const StyledSpann = styled(StyledSpan)`
 float: right;
+padding-right: 10px;
 `;
 
 const Button = styled.button`

@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import ModalDiv from './ModalDiv';
 import ModalContent from './ModalContent';
 import Close from '../../Heading/Close';
-import Send from '../../Heading/Send';
+// import Send from '../../Heading/Send';
 import Input from './Input';
+import ContactButton from './ContactButton';
 
 const Textarea = styled.textarea`
     resize: vertical;
@@ -39,6 +40,14 @@ font-size: 10px;
 font-weight: 400;
 color: #54545A;
 `;
+const UL = styled.ul`
+display: flex;
+width: 100%;
+padding-left: 0;
+list-style: none;
+align-items: center;
+`;
+
 
 class ContactModal extends React.Component {
   constructor(props) {
@@ -61,7 +70,7 @@ class ContactModal extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
-    }, () => console.log('name:', this.state[name]));
+    }, () => console.log(name, this.state[name]));
   }
 
   hideModal() {
@@ -94,11 +103,15 @@ class ContactModal extends React.Component {
             <Padded>
               <H2>Contact Agent</H2>
               <form>
-                <Input name="name" placeholder="Your Name" value={name} onChange={this.onChange} img="https://img.icons8.com/material-sharp/15/000000/person-male.png" />
-                <Input name="phone" placeholder="Phone" onChange={this.onChange} value={phone} img="https://img.icons8.com/android/15/000000/phone.png" />
-                <Input name="yourEmail" placeholder="Email" value={yourEmail} onChange={this.onChange} img="https://img.icons8.com/ios-filled/15/000000/send-mass-email.png" />
+                <Input key="name" name="name" placeholder="Your Name" value={name} onChange={() => this.onChange(event)} size="60" style={{ backgroundImage: "url('https://img.icons8.com/material-sharp/15/000000/person-male.png')" }} />
+                <br />
+                <Input key="phone" name="phone" placeholder="Phone" onChange={() => this.onChange(event)} value={phone} size="60" style={{ backgroundImage: "url('https://img.icons8.com/android/15/000000/phone.png')"}} />
+                <br />
+                <Input key="yourEmail" name="yourEmail" placeholder="Email" value={yourEmail} onChange={() => this.onChange(event)} size="60" style={{ backgroundImage: "url('https://img.icons8.com/ios-filled/15/000000/send-mass-email.png')" }} />
                 <Textarea name="message" value={message} onChange={() => this.onChange(event)} />
-                <Send close={this.contactAgent}>Contact Agent</Send>
+                <UL>
+                  <ContactButton close={this.contactAgent}>Contact Agent</ContactButton>
+                </UL>
                 <br />
                 <input name="finance" checked={finance} type="checkbox" onChange={() => this.onChange(event)} />
                 <label>I want financing information</label>
