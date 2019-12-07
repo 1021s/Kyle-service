@@ -15,6 +15,5 @@ const DropDown = (props) => {
 DropDown.propTypes = {
   times: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
-// given a list of times, render a bunch of options to choose from
 
 export default DropDown;

@@ -4,13 +4,40 @@ import ModalDiv from './ModalDiv';
 import ModalContent from './ModalContent';
 import Close from '../../Heading/Close';
 import Send from '../../Heading/Send';
+import Input from './Input';
 
 const Textarea = styled.textarea`
     resize: vertical;
-    width: 350px;
-    height: 50px;
+    display: block;
+    width: 100%;
+    height: 57px;
+    font-size: .8667rem;
     max-height: 100px;
     margin-top: 10px;
+`;
+
+const H2 = styled.h2`
+font-size: 28px;
+line-height: 1.3;
+font-weight: 600;
+`;
+
+const Padded = styled.div`
+flex-grow: 1;
+padding: 20px;
+text-align: left;
+`;
+
+const P = styled.p`
+margin-top: 10px;
+margin-bottom: 15px;
+display: block;
+margin-block-start: 1em;
+margin-block-end: 1em;
+line-height: 1.5
+font-size: 10px;
+font-weight: 400;
+color: #54545A;
 `;
 
 class ContactModal extends React.Component {
@@ -56,27 +83,31 @@ class ContactModal extends React.Component {
 
   render() {
     const { show } = this.props;
-    const { name, phone, yourEmail, message, finance } = this.state;
+    const {
+      name, phone, yourEmail, message, finance,
+    } = this.state;
+    const terms = 'By pressing Contact Agent, you agree that Zillow Group and real estate professionals may call/text you about your inquiry, which may involve use of automated means and prerecorded/artificial voices. You don\'t need to consent as a condition of buying any property, goods or services. Message/data rates may apply. You also agree to our Terms of Use. Zillow does not endorse any real estate professionals.';
     if (show) {
       return (
         <ModalDiv>
           <ModalContent>
+            <Padded>
+              <H2>Contact Agent</H2>
+              <form>
+                <Input name="name" placeholder="Your Name" value={name} onChange={this.onChange} img="https://img.icons8.com/material-sharp/15/000000/person-male.png" />
+                <Input name="phone" placeholder="Phone" onChange={this.onChange} value={phone} img="https://img.icons8.com/android/15/000000/phone.png" />
+                <Input name="yourEmail" placeholder="Email" value={yourEmail} onChange={this.onChange} img="https://img.icons8.com/ios-filled/15/000000/send-mass-email.png" />
+                <Textarea name="message" value={message} onChange={() => this.onChange(event)} />
+                <Send close={this.contactAgent}>Contact Agent</Send>
+                <br />
+                <input name="finance" checked={finance} type="checkbox" onChange={() => this.onChange(event)} />
+                <label>I want financing information</label>
+              </form>
+              <P>
+                {terms}
+              </P>
+            </Padded>
             <Close close={this.hideModal} />
-            <h1><b>Contact Agent</b></h1>
-            <form>
-              <input name="name" type="text" value={name} onChange={() => this.onChange(event)} size="50" />
-              <br />
-              <input name="phone" type="text" value={phone} onChange={() => this.onChange(event)} size="50" />
-              <br />
-              <input name="yourEmail" type="text" value={yourEmail} onChange={() => this.onChange(event)} size="50" />
-              <br />
-              <Textarea name="message" value={message} onChange={() => this.onChange(event)} />
-              <br />
-              <Send close={this.contactAgent}>Contact Agent</Send>
-              <br />
-              <input name="finance" checked={finance} type="checkbox" onChange={() => this.onChange(event)} />
-              <label>I want financing information</label>
-            </form>
           </ModalContent>
         </ModalDiv>
       );

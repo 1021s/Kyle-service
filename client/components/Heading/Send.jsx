@@ -5,14 +5,18 @@ import StyledSpan from './StyledSpan';
 
 const Button = styled.button`
 color: white;
-padding: 15px;
+display: inline-block;
+padding: .4em .67em;
 text-align: center;
 font-size: 15px;
-border: 0.5px solid rgb(0,106,255);
-border-radius: 4px;
+border: 1px solid transparent;
+border-radius: 5px;
+white-space: normal;
+line-height: 1.5;
 background: rgb(0,106,255);
 ${StyledSpan}: hover & {
   cursor: pointer;
+
 }
 `;
 Button.displayName = 'btn';
