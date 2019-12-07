@@ -12,7 +12,7 @@ border: 0.5px solid rgb(0,106,255);
 border-radius: 4px;
 background: rgb(0,106,255);
 ${StyledSpan}: hover & {
-
+  cursor: pointer;
 }
 `;
 Button.displayName = 'btn';

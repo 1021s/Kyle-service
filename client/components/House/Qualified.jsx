@@ -2,6 +2,11 @@ import React from 'react';
 import styled from 'styled-components';
 
 
+const Span = styled.span`
+margin-left: 4px;
+`;
+
+
 const Link = styled.a`
 font-family: "Open Sans", Tahoma, Geneva, sans-serif;
 color: rgb(0, 106, 255);
@@ -17,7 +22,7 @@ text-decoration: none;
 
 
 const Qualified = (props) => (
-  <span>
+  <Span>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       x="0px"
@@ -38,7 +43,7 @@ const Qualified = (props) => (
 
     </svg>
     <Link href="https://bit.ly/2DVghkg" target="blank"> Get pre-qualified </Link>
-  </span>
+  </Span>
 );
 
 

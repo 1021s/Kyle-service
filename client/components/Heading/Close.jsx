@@ -14,6 +14,7 @@ border: none;
 font-size: 20px;
 ${StyledSpan}: hover & {
     color: rgba(0,106,255, 0.5);
+    cursor: pointer;
 }
 `;
 

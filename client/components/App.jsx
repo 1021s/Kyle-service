@@ -69,6 +69,7 @@ class App extends React.Component {
         <ShareModal show={shareModal} showModal={this.showModal} />
         <ContactModal show={contactModal} showModal={this.showModal} />
         <TourModal show={tourModal} showModal={this.showModal} />
+        <hr/>
       </TextDiv>
     );
   }
