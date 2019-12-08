@@ -10,19 +10,52 @@ import Close from '../../Heading/Close';
 import DateButtonList from '../TourExtras/DateButtonList';
 import DropDown from '../TourExtras/DropDown';
 import RequestTour from '../TourExtras/RequestTour';
+import Input from '../ContactModal/Input';
+import Change from '../TourExtras/Change';
 
 
 const Textarea = styled.textarea`
     resize: vertical;
-    width: 350px;
+    width: 100%;
     height: 50px;
     max-height: 100px;
     margin-top: 10px;
 `;
 
-const StyledSpan = styled.span`
-width: 424px;
+// const StyledSpan = styled.span`
+// width: 424px;
 
+// `;
+
+const H2 = styled.h2`
+font-size: 28px;
+line-height: 1.3;
+font-weight: 600;
+`;
+
+const Padded = styled.div`
+flex-grow: 1;
+padding: 20px;
+text-align: left;
+`;
+
+const P = styled.p`
+margin-top: 10px;
+margin-bottom: 15px;
+display: block;
+margin-block-start: 1em;
+margin-block-end: 1em;
+line-height: 1.5
+font-size: 10px;
+font-weight: 400;
+color: #54545A;
+`;
+const UL = styled.ul`
+display: flex;
+width: 100%;
+padding-left: 0;
+list-style: none;
+align-items: center;
 `;
 
 class TourModal extends React.Component {
@@ -38,7 +71,7 @@ class TourModal extends React.Component {
       currentDate: Moment().get('date'),
       currentDates: [],
       times: [],
-      currentTime: '',
+      selector: '',
       toggle: false,
     };
     this.onChange = this.onChange.bind(this);
@@ -193,19 +226,21 @@ class TourModal extends React.Component {
   render() {
     const { show } = this.props;
     const {
-      name, phone, yourEmail, message, finance, currentDate, toggle, currentDates, times,
+      name, phone, yourEmail, message, finance, currentDate, toggle, currentDates, times, selector,
     } = this.state;
+    const terms = 'By pressing Contact Agent, you agree that Zillow Group and real estate professionals may call/text you about your inquiry, which may involve use of automated means and prerecorded/artificial voices. You don\'t need to consent as a condition of buying any property, goods or services. Message/data rates may apply. You also agree to our Terms of Use. Zillow does not endorse any real estate professionals.';
     let modal;
     const dateModal = (
       <ModalDiv>
         <ModalContent>
           <Close close={this.hideModal} />
-          <br />
-          <h3>Take a tour</h3>
-          <DateButtonList dates={currentDates} currentDate={currentDate} clickDate={this.clickDate} SwitchLeft={this.SwitchLeft} SwitchRight={this.SwitchRight} />
-          <br />
-          <DropDown times={times} />
-          <RequestTour close={this.switchModal}>Request tour</RequestTour>
+          <Padded>
+            <H2>Take a tour</H2>
+            <DateButtonList dates={currentDates} currentDate={currentDate} clickDate={this.clickDate} SwitchLeft={this.SwitchLeft} SwitchRight={this.SwitchRight} />
+            <br />
+            <DropDown times={times} handleChange={this.onChange} />
+            <RequestTour close={this.switchModal}>Request tour</RequestTour>
+          </Padded>
         </ModalContent>
       </ModalDiv>
     );
@@ -213,21 +248,27 @@ class TourModal extends React.Component {
       <ModalDiv>
         <ModalContent>
           <Close close={this.contactAgent} />
-          <h1><b>Contact Agent</b></h1>
-          <form>
-            <input name="name" type="text" value={name} onChange={() => this.onChange(event)} size="50" />
-            <br />
-            <input name="phone" type="text" value={phone} onChange={() => this.onChange(event)} size="50" />
-            <br />
-            <input name="yourEmail" type="text" value={yourEmail} onChange={() => this.onChange(event)} size="50" />
-            <br />
-            <Textarea name="message" value={message} onChange={() => this.onChange(event)} />
-            <br />
-            <RequestTour close={this.contactAgent}>Contact Agent</RequestTour>
-            <br />
-            <input name="finance" checked={finance} type="checkbox" onChange={() => this.onChange(event)} />
-            <label>I want financing information</label>
-          </form>
+          <Padded>
+            <H2>Contact Agent</H2>
+            <form>
+              <Input key="name" name="name" placeholder="Your Name" value={name} onChange={() => this.onChange(event)} size="60" style={{ backgroundImage: "url('https://img.icons8.com/material-sharp/15/000000/person-male.png')" }} />
+              <br />
+              <Input key="phone" name="phone" placeholder="Phone" onChange={() => this.onChange(event)} value={phone} size="60" style={{ backgroundImage: "url('https://img.icons8.com/android/15/000000/phone.png')" }} />
+              <br />
+              <Input key="yourEmail" name="yourEmail" placeholder="Email" value={yourEmail} onChange={() => this.onChange(event)} size="60" style={{ backgroundImage: "url('https://img.icons8.com/ios-filled/15/000000/send-mass-email.png')" }} />
+              <br />
+              <Textarea name="message" value={message} onChange={() => this.onChange(event)} />
+              <h5>{`${Moment({ date: currentDate }).format('dddd, MMMM Do')} at ${selector}`}</h5>
+              <Change onClick={this.switchModal} />
+              <RequestTour close={this.contactAgent}>Contact Agent</RequestTour>
+              <br />
+              <input name="finance" checked={finance} type="checkbox" onChange={() => this.onChange(event)} />
+              <label>I want financing information</label>
+            </form>
+            <P>
+              {terms}
+            </P>
+          </Padded>
         </ModalContent>
       </ModalDiv>
     );

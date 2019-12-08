@@ -18,11 +18,11 @@ margin-bottom: 10px;
 `;
 
 const DropDown = (props) => {
-  const { times } = props;
+  const { times, handleChange } = props;
   return (
-    <Select>
+    <Select name="selector" onChange={handleChange}>
       <option value="choose">Choose a time</option>
-      {times.map((time) => <option value={time} key={time}>{time}</option>)}
+      {times.map((time) => <option name={time} value={time} key={time}>{time}</option>)}
     </Select>
   );
 };

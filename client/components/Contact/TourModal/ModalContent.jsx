@@ -9,7 +9,6 @@ display: inline-block;
 text-align: center;
 padding: 20px;
 width: 498px;
-height: 305px;
 margin-top: 100px;
 `;
 
