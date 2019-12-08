@@ -38,6 +38,10 @@ class App extends React.Component {
     const url = window.location.href;
     const params = new URL(url).pathname;
     const Listing_id = params.slice(1, params.length - 1);
+    this.getHouse(Listing_id);
+  }
+
+  getHouse(Listing_id) {
     Axios.get(`/api/listings/${Listing_id}`)
       .then((res) => res.data)
       .then((data) => data[0])
@@ -45,7 +49,7 @@ class App extends React.Component {
         house,
       }))
       .catch((err) => console.log(err))
-      .finally(() => console.log('done!'));
+      .then(() => console.log('done'));
   }
 
   showModal(name) {
@@ -63,13 +67,13 @@ class App extends React.Component {
     return (
       <TextDiv>
         <Heading showModal={this.showModal} />
-        <hr/>
+        <hr />
         <House house={house} />
         <Footer Agent={Agent} showModal={this.showModal} />
         <ShareModal show={shareModal} showModal={this.showModal} />
         <ContactModal show={contactModal} showModal={this.showModal} />
         <TourModal show={tourModal} showModal={this.showModal} />
-        <hr/>
+        <hr />
       </TextDiv>
     );
   }
