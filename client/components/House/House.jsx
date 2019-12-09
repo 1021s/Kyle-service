@@ -1,17 +1,22 @@
 import React from 'react';
+import styled from 'styled-components';
+import Address from './Address';
+import Details from './Details';
+import Payment from './Payment';
+import Zestimate from './Zestimate';
 
 
-const House = props => {
-    return (
-        <div>
-            <div>details</div>
-            <div>address</div>
-            <div>For sale | </div>
-            <div>Zestimate</div>
-            <div>Payment</div>
-        </div>
-    );
-}
+const House = (props) => {
+  const { house } = props;
+  return (
+    <div>
+      <Details house={house} />
+      <Address house={house} />
+      <Zestimate house={house} />
+      <Payment house={house} />
+    </div>
+  );
+};
 
 
 export default House;
