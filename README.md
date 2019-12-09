@@ -3,7 +3,7 @@
 
 Hack Reactor Senior Front End Capstone project (FEC) - Zillow
 This is a group project, but all the work herein is my own, and the project will
-be a couping of our individual components to make up a whole page.
+be a coupling of our individual components to make up a whole page.
 
 
 This module represents the main heading of a product page from the Zillow website,
@@ -24,3 +24,9 @@ Module: Header
     -save
     -share
     -more
+
+Setup scripts:
+
+npm run db:seed - seed the database
+npm run build - runs webpack to build bundle
+npm start - starts server to host page at 
