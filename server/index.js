@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3001;
 
 
 app.use(express.json());
-app.use('/:Listing_id', express.static(path.resolve(__dirname, '..', 'public')));
+app.use(express.static(path.resolve(__dirname, '..', 'public')));
 
 
 // app.route('/api/listings')

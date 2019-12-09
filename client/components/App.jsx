@@ -23,8 +23,8 @@ class App extends React.Component {
 
   componentDidMount() {
     const url = window.location.href;
-    const params = new URL(url).pathname;
-    const Listing_id = params.slice(1, params.length - 1);
+    const params = url.split('?');
+    const Listing_id = params[1];
     this.getHouse(Listing_id);
   }
 
