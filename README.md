@@ -29,4 +29,4 @@ Setup scripts:
 
  - npm run db:seed - seed the database
  - npm run build - runs webpack to build bundle
- - npm start - starts server to host page at 
+ - npm start - starts server to host page at localhost:3001/
