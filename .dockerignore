@@ -3,3 +3,8 @@ npm-debug.log
 package-lock.json
 .gitignore
 Tests/
+public/bundle.js
+seed/index.test.js
+setupTests.js
+coverage
+.circleci
