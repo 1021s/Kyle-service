@@ -10,6 +10,7 @@
   "description": "Header module for our FEC Zillow clone ",
   "main": "index.js",
   "scripts": {
+    "docker": "node server",
     "test": "jest",
     "coverage": "jest --collectCoverage",
     "start": "nodemon server",
