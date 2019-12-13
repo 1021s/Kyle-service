@@ -1,4 +1,5 @@
 node_modules
-public/bundle.js
+public/main.bundle.js
+public/vendors.bundle.js
 package-lock.json
 coverage/
