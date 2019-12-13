@@ -100,6 +100,7 @@ class ContactModal extends React.Component {
       return (
         <ModalDiv>
           <ModalContent>
+          <Close close={this.hideModal} />
             <Padded>
               <H2>Contact Agent</H2>
               <form>
@@ -120,7 +121,6 @@ class ContactModal extends React.Component {
                 {terms}
               </P>
             </Padded>
-            <Close close={this.hideModal} />
           </ModalContent>
         </ModalDiv>
       );

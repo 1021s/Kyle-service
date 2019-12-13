@@ -3,11 +3,12 @@ import styled from 'styled-components';
 
 
 const ModalDiv = styled.div`
-position: absolute;
+position: fixed;
+overflow: hidden;
 background-color: rgba(0,0,0,0.1);
 border: 1px solid white;
 transition: 1.1s ease-out;
-display: inline-block
+display: inline-block;
 text-align: center;
 filter: blur(0);
 transform: scale(1);
