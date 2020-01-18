@@ -8,7 +8,7 @@ This application was built by a team, but all the work herein is my own.
 
 This module represents the main heading of a product page for a house listing.
 
-Fill in Gif here
+![](zilhomeBlur.jpg)
 
 ## Table of Contents
 1. <a href="#how_to_use">How To Use</a>
