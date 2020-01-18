@@ -1,32 +1,46 @@
-# Kyle-service
+# Basic-Info-service
 
 
-Hack Reactor Senior Front End Capstone project (FEC) - Zillow
-This is a group project, but all the work herein is my own, and the project will
-be a coupling of our individual components to make up a whole page.
+> Zilhome, an open source real estate listing application.
+
+This application was built by a team, but all the work herein is my own.
 
 
-This module represents the main heading of a product page from the Zillow website,
-  in this case, a house listing information section.
+This module represents the main heading of a product page for a house listing.
 
-Module: Header
-  Details: 
-    -Address
-    -Listed Price
-    -house details:
-      -rooms
-      -bathrooms
-      -sq footage
-    -zestimate
-  Buttons: 
-    -Take a tour
-    -contact agent
-    -save
-    -share
-    -more
+Fill in Gif here
 
-Setup scripts:
+## Table of Contents
+1. <a href="#how_to_use">How To Use</a>
+2. <a href="#requirements">Requirements</a>
+3. <a href="#related_projects">Related Projects</a>
+## <a id="how_to_use">How To Use</a>
+```
+# clone this repository
+$ git clone https://github.com/1021s/Kyle-service.git
 
- - npm run db:seed - seed the database
- - npm run build - runs webpack to build bundle
- - npm start - starts server to host page at localhost:3001/
+# install dependencies
+$ npm install
+
+# seed database
+$ npm run db:seed
+
+# compile/transpile files with webpack
+$ npm run build
+
+# start express server
+$ npm start
+```
+Visit localhost:3001/
+
+
+## <a id="requirements">Requirements</a>
+* [npm](https://www.npmjs.com/)
+* [Node.js](https://nodejs.org/en/download/)
+* [Git](https://git-scm.com/)
+
+## <a id="related_projects">Related Projects</a>
+* https://github.com/1021s/sayer-service
+* https://github.com/1021s/Matthew-service
+* https://github.com/1021s/Patrick-Service
+* https://github.com/1021s/inna-service
